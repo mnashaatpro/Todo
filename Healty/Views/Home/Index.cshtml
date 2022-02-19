@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Index";
+    //var controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+
+<h2>Index</h2>
+<br />
+<hr />
+<table id="tblTable" class="table table-bordered table-striped  table-hover dt-responsive nowrap">
+    <thead>
+        <tr>
+            <th> Id</th>
+            <th> Title</th>
+            <th> DueDate</th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+
+
+<div style="position: fixed; right: 25px; bottom: 25px; z-index: 9999; " class="text-white">
+    <a class="btn btn-success js-modal-popup" data-url="/Home/Create/"><i class="bi bi-plus-circle"></i> Add New</a>
+</div>
+
+
+
+
+@section Scripts {
+    @*@await Html.PartialAsync("Utility/_datatableScripts" )*@
+
+
+    <script src="~/Scripts/app/utility/convertToCamelCase.js"></script>
+    <script src="~/Scripts/app/columnsgenredatatable.js"></script>
+    <script src="~/Scripts/app/genreDatatable.js" controller="Home"
+            tableName="tblTable"></script>
+
+    <script src="~/Scripts/app/todoForm.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            //    $('.datepicker').datepicker({
+            //        format: "yyyy/mm/dd",
+            //        startDate: new Date(),
+            //        //endDate: "01-01-2020",
+            //        todayBtn: "linked",
+            //        autoclose: true,
+            //        todayHighlight: true,
+            //        orientation: "bottom"
+            //        //container: '.modal-dialog'
+            //    });
+
+            //      $('.datepicker').datepicker({
+            //    format: "yyyy/mm/dd",
+            //    startDate: new Date(),
+            //    //endDate: "01-01-2020",
+            //    todayBtn: "linked",
+            //    autoclose: true,
+            //    todayHighlight: true,
+            //    container: '.modal-dialog'
+            //});
+
+
+
+        })
+    </script>
+}

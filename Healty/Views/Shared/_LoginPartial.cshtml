@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!   ", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+                <a href="#">
+                    <i class="bi bi-person-badge"></i> Hello @User.Identity.GetUserName()
+                </a>
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" class="mx-3">  
+                Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+<ul class="nav navbar-nav navbar-right">
+    <li>@*@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-outline-primary my-2 my-sm-0" })*@</li>
+    <li>
+        <a href="@Url.Action("Login","Account")" id="loginLink"
+           class="btn btn-outline-success my-2 my-sm-0 mx-3">
+            <i class="bi bi-box-arrow-in-right"></i> Log in
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Register","Account")" id="registerLink"
+           class="btn btn-outline-primary my-2 my-sm-0">
+            <i class="bi bi-person-plus"></i> Register
+        </a>
+    </li>
+
+    
+
+    <li>@*@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "bi bi-box-arrow-in-right" })*@</li>
+
+
+</ul>
+}
